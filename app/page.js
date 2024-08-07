@@ -1,12 +1,24 @@
 "use client";
 
-import Home from "./Components/Home";
+import { useState } from "react";
+import AIGuess from "./Components/AIGuess";
+import HumanGuess from "./Components/HumanGuess";
 
 export default function Page() {
+  const [currentGame, setCurrentGame] = useState("human");
+
+  const changeGameMode = () => {
+    if (currentGame === "ai") setCurrentGame("human");
+    else setCurrentGame("ai");
+  };
+
   return (
     <>
-      <Home />
-     
+      {currentGame === "human" ? (
+        <HumanGuess onGameEnd={changeGameMode} />
+      ) : (
+        <AIGuess onGameEnd={changeGameMode} />
+      )}
     </>
   );
 }
