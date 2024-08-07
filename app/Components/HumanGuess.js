@@ -119,5 +119,6 @@ const HumanGuess = ({ onGameEnd }) => {
         </div>
     );
 };
+// adding text to check wether the github stats counter increases or not
 
 export default HumanGuess;
